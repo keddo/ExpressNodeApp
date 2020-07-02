@@ -3,16 +3,17 @@ const dotenv = require('dotenv');
 const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
+const path = require('path');
 
 dotenv.config();
 
 const app = express();
 
 
-app.use(morgan('combined'));
+app.use(morgan('tiny'));
 
 app.get('/', function (req, res) {
-    res.send({ message: 'hello', tech: 'express' });
+    res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 const PORT = process.env.PORT || 3002;
