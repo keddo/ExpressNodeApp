@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "debug": "SET DEBUG=app & node app.js"
+    "start": "SET DEBUG=app & nodemon app.js",
+    "lint": "eslint app.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,14 @@
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.4",
     "popper.js": "^1.15.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500"
   }
 }
