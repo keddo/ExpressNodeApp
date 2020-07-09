@@ -14,9 +14,15 @@ app.use(morgan('tiny'));
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, '/public/')));
 
+// Navbar titles
+const nav = [{ link: '/api', title: "Home" },
+{ link: '/api/books', title: "Books" },
+{ link: '/api/authors', title: "Authors" },
+{ link: '/api/categories', title: "Category" }];
+
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-const bookRouter = require('./src/routes/bookRoutes');
+const bookRouter = require('./src/routes/bookRoutes')(nav);
 app.use('/api', bookRouter);
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3002;
