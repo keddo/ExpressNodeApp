@@ -60,7 +60,7 @@ const books = [
     }
 ];
 
-bookRouter.route('/').get(function (req, res) {
+bookRouter.route('/').get((req, res) => {
     // eslint-disable-next-line no-undef
     res.render('index',
         {
@@ -71,9 +71,9 @@ bookRouter.route('/').get(function (req, res) {
             title: 'Bookstore'
         });
 });
-bookRouter.route('/books').get(function (req, res) {
+bookRouter.route('/books').get((req, res) => {
     // eslint-disable-next-line no-undef
-    res.render('book_list_view',
+    res.render('book_list',
         {
             nav: [{ link: '/api', title: "Home" },
             { link: '/api/books', title: "Books" },
@@ -81,6 +81,19 @@ bookRouter.route('/books').get(function (req, res) {
             { link: '/api/categories', title: "Category" }],
             title: 'Bookstore',
             books
+        });
+});
+bookRouter.route("/books/:id").get((req, res) => {
+    const { id } = req.params;
+    // eslint-disable-next-line no-undef
+    res.render('single_book',
+        {
+            nav: [{ link: '/api', title: "Home" },
+            { link: '/api/books', title: "Books" },
+            { link: '/api/authors', title: "Authors" },
+            { link: '/api/categories', title: "Category" }],
+            title: 'Bookstore',
+            book: books[id]
         });
 });
 
