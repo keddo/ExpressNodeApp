@@ -20,11 +20,25 @@ const route = express.Router();
 
 route.route('/').get(function (req, res) {
     // eslint-disable-next-line no-undef
-    res.render('index', { list: ['a', 'b'], title: 'My App' });
+    res.render('index',
+        {
+            nav: [{ link: '/api', title: "Home" },
+            { link: '/api/books', title: "Books" },
+            { link: '/api/authors', title: "Authors" },
+            { link: '/api/category', title: "Category" }],
+            title: 'My App'
+        });
 });
 route.route('/books').get(function (req, res) {
     // eslint-disable-next-line no-undef
-    res.render('book_list_view', { list: ['a', 'b'], title: 'My App' });
+    res.render('book_list_view',
+        {
+            nav: [{ link: '/api', title: "Home" },
+            { link: '/api/books', title: "Books" },
+            { link: '/api/authors', title: "Authors" },
+            { link: '/api/categories', title: "Category" }],
+            title: 'My App'
+        });
 });
 
 app.use('/api', route);

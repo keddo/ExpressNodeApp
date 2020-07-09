@@ -20,13 +20,9 @@
             <img src="/img/logo.png" alt="Microsoft" class="logo">
 
             <ul class="main-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Surface</a></li>
-                <li><a href="#">Xbox</a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Support</a></li>
+                <% for(let i=0;i < nav.length; i++){%>
+                <li><a href="<%=nav[i].link%>"><%=nav[i].title%></a></li>
+                <%}%>
             </ul>
 
             <ul class="right-menu">
