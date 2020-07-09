@@ -16,17 +16,23 @@ app.use(express.static(path.join(__dirname, '/public/')));
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+const route = express.Router();
 
-app.get('/', function (req, res) {
+route.route('/').get(function (req, res) {
     // eslint-disable-next-line no-undef
     res.render('index', { list: ['a', 'b'], title: 'My App' });
 });
+route.route('/books').get(function (req, res) {
+    // eslint-disable-next-line no-undef
+    res.render('book_list_view', { list: ['a', 'b'], title: 'My App' });
+});
 
+app.use('/api', route);
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3002;
 
-app.listen(PORT, function () {
-    debug(`Server running at: https://localhost:${chalk.green(PORT)}`);
+app.listen(PORT, () => {
+    debug(`Server running at: http://localhost:${chalk.green(PORT)}`);
 });
 
 
