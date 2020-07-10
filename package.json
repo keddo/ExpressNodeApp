@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "SET DEBUG=app & nodemon app.js",
+    "start": "SET DEBUG=app,app:* & nodemon app.js",
     "lint": "eslint app.js"
   },
   "repository": {

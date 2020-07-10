@@ -11,6 +11,12 @@ const app = express();
 
 app.use(morgan('tiny'));
 
+
+// Middleware
+// app.use((req, res, next) => {
+//     debug('My middleware');
+//     next();
+// });
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, '/public/')));
 
@@ -23,7 +29,9 @@ const nav = [{ link: '/api', title: "Home" },
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 const bookRouter = require('./src/routes/bookRoutes')(nav);
+const adminRouter = require('./src/routes/adminRoutes')();
 app.use('/api', bookRouter);
+app.use('/api', adminRouter);
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3002;
 
