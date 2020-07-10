@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:adminRoutes');
-const mongoClient = require('mongodb');
+const { MongoClient } = require('mongodb');
 const books = [
     {
         title: "War and Peace",
@@ -68,7 +68,7 @@ function router() {
             (async function mongo() {
                 let client;
                 try {
-                    client = await mongoClient.connect(url);
+                    client = await MongoClient.connect(url);
                     const db = client.db(dbName);
                     const response = await db.collection('books').insertMany(books);
                     res.json(response);
@@ -77,9 +77,7 @@ function router() {
                 }
                 client.close();
             }());
-
         });
-
     return adminRouter;
 }
 
