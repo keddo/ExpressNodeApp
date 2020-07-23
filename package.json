@@ -18,17 +18,17 @@
   },
   "homepage": "https://github.com/keddo/ExpressNodeApp#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "chalk": "^4.0.0",
+    "bootstrap": "^4.5.0",
+    "chalk": "^4.1.0",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
-    "ejs": "^2.7.1",
+    "ejs": "^2.7.4",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
-    "mongodb": "^3.3.3",
-    "morgan": "^1.9.1",
+    "jquery": "^3.5.1",
+    "mongodb": "^3.5.9",
+    "morgan": "^1.10.0",
     "nodemon": "^1.19.4",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.16.1"
   },
   "nodemonConfig": {
     "restartable": "rs",
